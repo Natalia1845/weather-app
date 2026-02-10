@@ -1,0 +1,26 @@
+.add-city {
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
+}
+
+.add-city input {
+  flex: 1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.add-city button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #74c0fc;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-city button:hover {
+  background-color: #4dabf7;
+}

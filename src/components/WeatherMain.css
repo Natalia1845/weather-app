@@ -1,0 +1,39 @@
+.weather-main {
+  padding: 20px;
+  flex: 1;
+  font-family: Arial, sans-serif;
+}
+
+.weather-main h1 {
+  font-size: 36px;
+}
+
+.temp {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.weather-main.sunny {
+  background: linear-gradient(to bottom, #a0c4ff, #ffffff);
+  color: #333;
+}
+
+.weather-main.rain {
+  background: linear-gradient(to bottom, #74c0fc, #3a7ca5);
+  color: #fff;
+}
+
+.weather-main.cloudy {
+  background: linear-gradient(to bottom, #d3d3d3, #a9a9a9);
+  color: #333;
+}
+
+.weather-main.snow {
+  background: linear-gradient(to bottom, #f0f8ff, #cce6ff);
+  color: #333;
+}
