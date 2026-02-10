@@ -1,12 +1,20 @@
-export default function Sidebar() {
+export default function Sidebar({ selectedCity, setSelectedCity }) {
+  const cities = ['Чернівці', 'Київ', 'Львів']
+
   return (
     <aside className="sidebar">
       <h2>Міста</h2>
 
       <ul className="city-list">
-        <li className="city active">Чернівці</li>
-        <li className="city">Київ</li>
-        <li className="city">Львів</li>
+        {cities.map((city) => (
+          <li
+            key={city}
+            className={`city ${city === selectedCity ? 'active' : ''}`}
+            onClick={() => setSelectedCity(city)}
+          >
+            {city}
+          </li>
+        ))}
       </ul>
 
       <button className="add-city">+ Додати місто</button>
