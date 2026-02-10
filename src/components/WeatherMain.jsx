@@ -10,17 +10,25 @@ const cityMap = {
 export default function WeatherMain({ selectedCity }) {
   const [weatherData, setWeatherData] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [bgClass, setBgClass] = useState("sunny") // клас для фону
+  const [bgClass, setBgClass] = useState("sunny")
   const apiKey = import.meta.env.VITE_WEATHER_API_KEY
 
   useEffect(() => {
     if (!selectedCity) return
 
-    const city = cityMap[selectedCity] || selectedCity
+    // Беремо транслітерацію лише для відомих міст, інші — як введено
+    const cityQuery = cityMap[selectedCity] || selectedCity.trim()
+
+    console.log("Запит до WeatherAPI:", cityQuery) // лог для перевірки
+
     setLoading(true)
     setWeatherData(null)
 
-    fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&lang=uk`)
+    fetch(
+      `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(
+        cityQuery
+      )}&lang=uk`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log("Weather API response:", data)
@@ -33,23 +41,16 @@ export default function WeatherMain({ selectedCity }) {
             wind: data.current.wind_kph + " км/год",
           })
 
-          // Змінюємо фон залежно від погоди
           const condition = data.current.condition.text.toLowerCase()
-          if (condition.includes("сонячно") || condition.includes("ясно")) {
-            setBgClass("sunny")
-          } else if (condition.includes("дощ") || condition.includes("злив")) {
-            setBgClass("rain")
-          } else if (condition.includes("хмар") || condition.includes("пасмурно")) {
-            setBgClass("cloudy")
-          } else if (condition.includes("сніг")) {
-            setBgClass("snow")
-          } else {
-            setBgClass("sunny") // дефолт
-          }
-        } else {
+          if (condition.includes("сонячно") || condition.includes("ясно")) setBgClass("sunny")
+          else if (condition.includes("дощ") || condition.includes("злив")) setBgClass("rain")
+          else if (condition.includes("хмар") || condition.includes("пасмурно")) setBgClass("cloudy")
+          else if (condition.includes("сніг")) setBgClass("snow")
+          else setBgClass("sunny")
+        } else if (data.error) {
           setWeatherData({
             temp: "N/A",
-            description: data.error ? data.error.message : "Помилка завантаження",
+            description: "Погода недоступна для цього міста",
             humidity: "-",
             wind: "-",
           })
