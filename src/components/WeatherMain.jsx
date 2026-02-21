@@ -25,9 +25,11 @@ export default function WeatherMain({ selectedCity }) {
   }
 
   const temp =
-    unit === "C"
-      ? weather?.current?.temp_c
-      : weather?.current?.temp_f
+    weather?.current
+      ? unit === "C"
+        ? weather.current.temp_c
+        : weather.current.temp_f
+      : "--"
 
   return (
     <div className="weather-main">
@@ -35,7 +37,7 @@ export default function WeatherMain({ selectedCity }) {
         <h1>{selectedCity}</h1>
 
         <div className="temperature">
-          {temp ?? "--"}°{unit}
+          {temp}°{unit}
         </div>
 
         <div className="weather-info">
@@ -44,13 +46,8 @@ export default function WeatherMain({ selectedCity }) {
         </div>
 
         <div className="weather-buttons">
-          <button onClick={fetchWeather}>
-            🔄 Оновити
-          </button>
-
-          <button onClick={toggleUnit}>
-            🌡 Перемкнути °C/°F
-          </button>
+          <button onClick={fetchWeather}>🔄 Оновити</button>
+          <button onClick={toggleUnit}>🌡 Перемкнути °C/°F</button>
         </div>
       </div>
     </div>

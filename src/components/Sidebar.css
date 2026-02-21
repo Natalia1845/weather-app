@@ -1,67 +1,89 @@
 .sidebar {
   width: 100%;
-  max-width: 1000px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 20px 30px;
-  margin-bottom: 40px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-  color: white;
+  background: rgba(195, 221, 230, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid white;
 }
 
 .sidebar h2 {
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
 }
 
 .city-list {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   flex-wrap: wrap;
-  list-style: none;
+  justify-content: center;
 }
 
 .city-item {
-  background: rgba(255,255,255,0.2);
-  padding: 10px 15px;
-  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: 0.3s;
+  gap: 5px;
 }
 
-.city-item:hover {
-  transform: translateY(-3px);
-  background: rgba(255,255,255,0.3);
+.city-item button {
+  padding: 8px 15px;
+  border-radius: 12px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.city-item button.active,
+.city-item button:hover {
+  background: white;
+  color: #1e293b;
 }
 
 .delete-btn {
-  background: none;
+  padding: 5px 10px;
+  background: #ff4d4d;
   border: none;
-  color: #ff4d4d;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.add-city {
-  margin-top: 20px;
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.city-add {
+  margin-top: 15px;
   display: flex;
   gap: 10px;
 }
 
-.add-city input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
+.city-add input {
+  padding: 8px;
+  border-radius: 12px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: 500;
 }
 
-.add-city button {
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: none;
-  background: white;
+.city-add button {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
   cursor: pointer;
   font-weight: 600;
+}
+
+.city-add button:hover {
+  background: white;
+  color: #1e293b;
 }

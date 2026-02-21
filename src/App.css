@@ -1,19 +1,20 @@
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body, #root {
-  height: 100%;
-  font-family: "Inter", sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #a0d8f1, #3394c1);
+  color: white;
+  height: 100vh;
 }
 
 .app {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #4e73df, #1cc88a);
   display: flex;
   flex-direction: column;
+  height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 40px;
 }

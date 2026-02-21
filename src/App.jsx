@@ -4,11 +4,11 @@ import WeatherMain from "./components/WeatherMain"
 import "./App.css"
 
 function App() {
-  const [selectedCity, setSelectedCity] = useState("Чернівці")
+  const [selectedCity, setSelectedCity] = useState("Chernivtsi") // англійська назва міста
 
   return (
     <div className="app">
-      <Sidebar setSelectedCity={setSelectedCity} />
+      <Sidebar selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
       <WeatherMain selectedCity={selectedCity} />
     </div>
   )
