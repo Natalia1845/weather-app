@@ -1,39 +1,57 @@
 .weather-main {
-  padding: 20px;
-  flex: 1;
-  font-family: Arial, sans-serif;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
 }
 
-.weather-main h1 {
-  font-size: 36px;
+.weather-card {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(25px);
+  border-radius: 30px;
+  padding: 50px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
 }
 
-.temp {
-  font-size: 48px;
-  font-weight: bold;
+.temperature {
+  font-size: 80px;
+  font-weight: 700;
+  margin: 20px 0;
 }
 
-.description {
-  font-size: 24px;
-  margin-bottom: 10px;
+.weather-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
-.weather-main.sunny {
-  background: linear-gradient(to bottom, #a0c4ff, #ffffff);
-  color: #333;
+.weather-buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
 }
 
-.weather-main.rain {
-  background: linear-gradient(to bottom, #74c0fc, #3a7ca5);
-  color: #fff;
+/* Однаковий стиль для обох кнопок */
+.weather-buttons button {
+  padding: 12px 22px;
+  border-radius: 16px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.weather-main.cloudy {
-  background: linear-gradient(to bottom, #d3d3d3, #a9a9a9);
-  color: #333;
-}
-
-.weather-main.snow {
-  background: linear-gradient(to bottom, #f0f8ff, #cce6ff);
-  color: #333;
+.weather-buttons button:hover {
+  background: white;
+  color: #1e293b;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }

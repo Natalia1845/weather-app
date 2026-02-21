@@ -1,26 +1,67 @@
+.sidebar {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 20px 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  color: white;
+}
+
+.sidebar h2 {
+  margin-bottom: 15px;
+}
+
+.city-list {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.city-item {
+  background: rgba(255,255,255,0.2);
+  padding: 10px 15px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.city-item:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.3);
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+}
+
 .add-city {
   margin-top: 20px;
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 
 .add-city input {
   flex: 1;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
 }
 
 .add-city button {
-  padding: 5px 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
   border: none;
-  border-radius: 5px;
-  background-color: #74c0fc;
-  color: white;
+  background: white;
   cursor: pointer;
-  transition: background 0.2s;
-}
-
-.add-city button:hover {
-  background-color: #4dabf7;
+  font-weight: 600;
 }

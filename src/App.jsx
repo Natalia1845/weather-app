@@ -1,17 +1,17 @@
-//import "./index.css" 
 import { useState } from "react"
 import Sidebar from "./components/Sidebar"
 import WeatherMain from "./components/WeatherMain"
-import "./index.css"
+import "./App.css"
 
-export default function App() {
-  // Початкове місто
+function App() {
   const [selectedCity, setSelectedCity] = useState("Чернівці")
 
   return (
-    <div className="app" style={{ display: "flex", minHeight: "100vh" }}>
-      <Sidebar selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
+    <div className="app">
+      <Sidebar setSelectedCity={setSelectedCity} />
       <WeatherMain selectedCity={selectedCity} />
     </div>
   )
 }
+
+export default App
